@@ -22,16 +22,24 @@
             }
 
             // register web+protocol
+            enableProtocolHandler();
+        });
+
+        function enableProtocolHandler() { 
             navigator.registerProtocolHandler(
                 "web+protocol",
                 "https://web-custom-protocol.vercel.app/?payload=%s",
                 "Protocol Handler"
             );
-        });
+        }
     </script>
 </head>
 
 <body>
+    <div style="text-align: center;">
+        <button onclick="enableProtocolHandler();">Click to enable Protocol Handler if not auto prompted</button>
+    </div>
+
     <div style="text-align: center;">
         Working : <a href="web+protocol://middleware/target" target="_blank"><b>web+protocol://middleware/target</b></a>
         <br>
