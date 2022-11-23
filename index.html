@@ -6,21 +6,22 @@
     <meta name="viewport" content="width=device-width">
     <title>Protocol DeBunk</title>
     <script defer>
-        // get payload parameter and display
-        var url = new URL(window.location.href);
-        var payload = url.searchParams.get("payload");
-        console.log("PAYLOAD : " + payload);
-
-        // display payload on DOM
-        if (typeof payload !== "undefined") {
-            let span_payload = document.getElementById("payload");
-            span_payload.style.display = "block";
-            span_payload.innerHTML = `<b>PAYLOAD : ${payload}</b>`;
-        }
-
-        // register web+protocol
         window.addEventListener('DOMContentLoaded', (event) => {
-            console.log('DOM fully loaded and parsed');
+            console.log("\nDOM fully loaded and parsed\n");
+
+            // get payload parameter and display
+            var url = new URL(window.location.href);
+            var payload = url.searchParams.get("payload");
+            console.log("PAYLOAD : " + payload);
+
+            // display payload on DOM
+            if (typeof payload !== "undefined") {
+                let span_payload = document.getElementById("payload");
+                span_payload.style.display = "block";
+                span_payload.innerHTML = `<b>PAYLOAD : ${payload}</b>`;
+            }
+
+            // register web+protocol
             navigator.registerProtocolHandler(
                 "web+protocol",
                 "https://web-custom-protocol.vercel.app/?payload=%s",
