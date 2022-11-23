@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width">
     <title>Protocol DeBunk</title>
     <script defer>
+        // register web+protocol
         window.addEventListener('DOMContentLoaded', (event) => {
             console.log('DOM fully loaded and parsed');
             navigator.registerProtocolHandler(
                 "web+protocol",
-                "http://127.0.0.1:1234/?payload=%s",
+                "https://web-custom-protocol.vercel.app/?payload=%s",
                 "Protocol Handler"
             );
         });
@@ -18,11 +19,11 @@
 </head>
 
 <body>
-    <div>
+    <div style="text-align: center;">
         Working : <a href="web+protocol://middleware/target" target="_blank"><b>web+protocol://middleware/target</b></a>
-    <br>
-    Wanted, but not working : <a href="protocol://middleware/target"
-        target="_blank"><b>protocol://middleware/target</b></a>
+        <br>
+        Wanted, but not working : <a href="protocol://middleware/target"
+            target="_blank"><b>protocol://middleware/target</b></a>
     </div>
 </body>
 
