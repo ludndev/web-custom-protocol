@@ -6,6 +6,18 @@
     <meta name="viewport" content="width=device-width">
     <title>Protocol DeBunk</title>
     <script defer>
+        // get payload parameter and display
+        var url = new URL(window.location.href);
+        var payload = url.searchParams.get("payload");
+        console.log("PAYLOAD : " + payload);
+
+        // display payload on DOM
+        if (typeof payload !== "undefined") {
+            let span_payload = document.getElementById("payload");
+            span_payload.style.display = "block";
+            span_payload.innerHTML = `<b>PAYLOAD : ${payload}</b>`;
+        }
+
         // register web+protocol
         window.addEventListener('DOMContentLoaded', (event) => {
             console.log('DOM fully loaded and parsed');
@@ -24,6 +36,10 @@
         <br>
         Wanted, but not working : <a href="protocol://middleware/target"
             target="_blank"><b>protocol://middleware/target</b></a>
+        <br>
+        <hr />
+        <br>
+        <span id="payload" style="display: none;"></span>
     </div>
 </body>
 
