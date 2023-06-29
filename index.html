@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width">
     <title>Protocol DeBunk</title>
     <script defer>
+		// register web+protocol
+        enableProtocolHandler();
+		
         window.addEventListener('DOMContentLoaded', (event) => {
             console.log("\nDOM fully loaded and parsed\n");
 
@@ -20,9 +23,6 @@
                 span_payload.style.display = "block";
                 span_payload.innerHTML = `<b>PAYLOAD : ${payload}</b>`;
             }
-
-            // register web+protocol
-            enableProtocolHandler();
         });
 
         function enableProtocolHandler() { 
